@@ -14,14 +14,14 @@
     <distributionManagement>
       <repository>
         <id>lunarclient-private</id>
-        <url>https://lunarclient-947665438472.d.codeartifact.us-east-2.amazonaws.com/maven/maven/</url>
+        <url>artifactregistry://us-maven.pkg.dev/moonsworth-299m4oir/maven</url>
       </repository>
     </distributionManagement>
 
     <repositories>
         <repository>
             <id>lunarclient-private</id>
-            <url>https://lunarclient-947665438472.d.codeartifact.us-east-2.amazonaws.com/maven/maven/</url>
+            <url>artifactregistry://us-maven.pkg.dev/moonsworth-299m4oir/maven</url>
         </repository>
         <repository>
             <id>spigotmc</id>
@@ -31,6 +31,13 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
+        <extensions>
+            <extension>
+                <groupId>com.google.cloud.artifactregistry</groupId>
+                <artifactId>artifactregistry-maven-wagon</artifactId>
+                <version>2.2.0</version>
+            </extension>
+        </extensions>
         <resources>
             <resource>
                 <targetPath>.</targetPath>
